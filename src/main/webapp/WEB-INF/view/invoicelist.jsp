@@ -3,41 +3,63 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
 <head>
-	<title>Invoice List</title>
+<title>List Invoice</title>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="css/util.css">
+<link rel="stylesheet" type="text/css" href="css/main1.css">
 </head>
 <body>
-<form:form method="post" action="getInvoice" modelAttribute="InvoiceForm">
-<h2>Invoice List</h2>
-	<table border="2" width="70%" cellpadding="2">
-	<tr>
-		<th>Invoice id</th>
-		<th>Purchase Price</th>
-		<th>Vat</th>
-		<th>No of Parts</th>
-		<th>Total price</th>
-		
-		<th>Total vat</th>
-		<th>Total amount</th>
-		<th>PDF</th>
-	</tr>
-	<c:forEach items="${invoiceList}" var="invoice" >
-		<tr>
-		<%-- 	<td align="center">${status.count}</td> --%>
-			<td><input value="${invoice.invoice_id}"/></td>
-			<td><input value="${invoice.p_price}"/></td>
-			<td><input value="${invoice.vat}"/></td>
-			<td><input value="${invoice.no_of_part}"/></td>
-			<td><input value="${invoice.total_price}"/></td>
-			<td><input value="${invoice.total_vat}"/></td>
-			<td><input value="${invoice.total_amt}"/></td>
-			   <td><a href="generatepdf/${invoice.invoice_id}">PDF</a></td>  
-			
-		</tr>
-	</c:forEach>
-</table>	
-<br/>
+	<div class="limiter">
+		<div class="container-table100">
+			<div class="wrap-table100">
+				<div class="table100 ver1 m-b-110">
 
-	
-</form:form>
+					<form:form method="post" action="getInvoice"
+						modelAttribute="InvoiceForm">
+						<div class="table100-head">
+							<table>
+								<thead>
+									<tr>
+										<th class="cell100 column1">Invoice id</th>
+										<th class="cell100 column2">Purchase Price</th>
+										<th class="cell100 column3">Vat</th>
+										<th class="cell100 column4">No of Parts</th>
+										<th class="cell100 column5">Total price</th>
+
+										<th class="cell100 column6">Total vat</th>
+										<th class="cell100 column7">Total amount</th>
+										<th class="cell100 column8">PDF</th>
+									</tr>
+								</thead>
+							</table>
+						</div>
+						<div class="table100-body js-pscroll">
+							<table>
+								<tbody>
+
+									<c:forEach items="${invoiceList}" var="invoice">
+										<tr class="row100 body">
+											<%-- 	<td align="center">${status.count}</td> --%>
+											<td class="cell100 column1">${invoice.invoice_id}</td>
+											<td class="cell100 column2">${invoice.p_price}</td>
+											<td class="cell100 column3">${invoice.vat}</td>
+											<td class="cell100 column4">${invoice.no_of_part}</td>
+											<td class="cell100 column5">${invoice.total_price}</td>
+											<td class="cell100 column6">${invoice.total_vat}</td>
+											<td class="cell100 column7">${invoice.total_amt}</td>
+											<td class="cell100 column8"><a
+												href="generatepdf/${invoice.invoice_id}">PDF</a></td>
+
+										</tr>
+									</c:forEach>
+								</tbody>
+							</table>
+						</div>
+					</form:form>
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
 </html>
