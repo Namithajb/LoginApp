@@ -28,12 +28,12 @@
 					</span>
 				</button>
 			</div>
-				</div>
+				
 			<div class="container-contact100-form-btn">
 				<button>
 					<span>
 						<button id="Invoicelist" name="invoicelist" class="contact100-form-btn"
-							onclick="location.href = 'getInvoice';">Invoice List</button>
+							onclick="location.href = 'getInvoice';">List Invoice</button>
 					</span>
 				</button>
 			</div>
