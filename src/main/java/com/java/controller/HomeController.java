@@ -19,8 +19,6 @@ public class HomeController {
 
 	@RequestMapping("/")
 	public String home(Map<String, Object> map) {
-		map.put("message", "HowToDoInJava Reader !!");
-		System.out.println("##########################################");
 		return "home";
 	}
 

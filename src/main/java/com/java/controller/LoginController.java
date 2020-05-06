@@ -6,6 +6,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.java.model.Login;
 import com.java.model.User;
@@ -30,5 +31,5 @@ public class LoginController {
 		}
 
 		return isValidUser ? "welcome" : "login";
-	}
+	}	
 }

@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.java.dao.UserDAO;
+import com.java.model.Invoice;
 import com.java.model.Login;
 import com.java.model.User;
 
@@ -21,4 +22,6 @@ public class UserServiceImpl implements UserService {
 		return userDao.validateUser(login);
 	}
 
+	
+	
 }

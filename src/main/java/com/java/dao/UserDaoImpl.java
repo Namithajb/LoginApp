@@ -11,6 +11,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
 
+import com.java.model.Invoice;
 import com.java.model.Login;
 import com.java.model.User;
 
@@ -36,6 +37,8 @@ public class UserDaoImpl implements UserDAO {
 
 		return users.size() > 0 ? users.get(0) : null;
 	}
+	
+	
 
 }
 

@@ -2,6 +2,7 @@ package com.java.service;
 
 import org.springframework.stereotype.Service;
 
+import com.java.model.Invoice;
 import com.java.model.Login;
 import com.java.model.User;
 
@@ -11,4 +12,5 @@ public interface UserService {
 	int addUser(User user);
 
 	User validateUser(Login login);
+
 }
