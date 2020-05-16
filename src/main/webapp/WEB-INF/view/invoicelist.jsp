@@ -29,7 +29,8 @@
 
 										<th class="cell100 column6">Total vat</th>
 										<th class="cell100 column7">Total amount</th>
-										<th class="cell100 column8">PDF</th>
+										<th class="cell100 column8">Edit/Delete</th>
+										<th class="cell100 column9">PDF</th>
 									</tr>
 								</thead>
 							</table>
@@ -42,14 +43,15 @@
 										<tr class="row100 body">
 											<%-- 	<td align="center">${status.count}</td> --%>
 											<td class="cell100 column1">${invoice.invoice_id}</td>
-											<td class="cell100 column2">${invoice.p_price}</td>
-											<td class="cell100 column3">${invoice.vat}</td>
+											<td class="cell100 column2">£${invoice.p_price}</td>
+											<td class="cell100 column3">£${invoice.vat}</td>
 											<td class="cell100 column4">${invoice.no_of_part}</td>
-											<td class="cell100 column5">${invoice.total_price}</td>
-											<td class="cell100 column6">${invoice.total_vat}</td>
-											<td class="cell100 column7">${invoice.total_amt}</td>
-											<td class="cell100 column8"><a
-												href="generatepdf/${invoice.invoice_id}">PDF</a></td>
+											<td class="cell100 column5">£${invoice.total_price}</td>
+											<td class="cell100 column6">£${invoice.total_vat}</td>
+											<td class="cell100 column7">£${invoice.total_amt}</td>
+											<td class="cell100 column8"><a href="Edit/${invoice.invoice_id}"/a href="Delete/${invoice.invoice_id}">Edit/Delete</a></td>
+											
+											<td class="cell100 column9"><a href="generatepdf/${invoice.invoice_id}">PDF</a></td>
 
 										</tr>
 									</c:forEach>

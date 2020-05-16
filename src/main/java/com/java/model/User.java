@@ -1,13 +1,35 @@
 package com.java.model;
 
-public class User {
 
+
+
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotEmpty;
+
+public class User {
+	@NotEmpty(message = "Name is mandatory")
 	private String username;
+	
+	@NotEmpty(message = "Password is mandatory")
+	@Size(min=1,message="required") 
 	private String password;
+	
+	@NotEmpty(message = "Firstname is mandatory")
 	private String firstname;
+	
+	@NotEmpty(message = "Lastname is mandatory")
 	private String lastname;
+	
+	@NotEmpty(message = "Email is mandatory")
+	@Email
 	private String email;
+	
+	@NotEmpty(message = "Address is mandatory")
 	private String address;
+	
+	
 	private int phone;
 	
 	public User() {

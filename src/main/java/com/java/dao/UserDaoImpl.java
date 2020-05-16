@@ -24,7 +24,7 @@ public class UserDaoImpl implements UserDAO {
 	JdbcTemplate jdbcTemplate;
 
 	public int addUser(User user) {
-		String sql = "insert into user values(?,?,?,?,?,?,?)";
+		String sql = "insert into user (username,password,firstname,lastname,email,address,phone)values(?,?,?,?,?,?,?)";
 
 		return jdbcTemplate.update(sql, new Object[] { user.getUsername(), user.getPassword(), user.getFirstname(),
 				user.getLastname(), user.getEmail(), user.getAddress(), user.getPhone() });
@@ -37,7 +37,6 @@ public class UserDaoImpl implements UserDAO {
 
 		return users.size() > 0 ? users.get(0) : null;
 	}
-	
 	
 
 }

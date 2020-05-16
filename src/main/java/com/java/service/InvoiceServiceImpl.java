@@ -30,8 +30,15 @@ public class InvoiceServiceImpl implements InvoiceService{
 	{
 		return invoiceDao.getInvoiveById(Invoice_id);
 	}
-
-	
-	
+    @Override
+	public int updateInvoice(Invoice invoice)
+	{
+		return invoiceDao.updateInvoice(invoice);
+	}
+    @Override
+	public int deleteInvoice(int invoice_id)
+	{
+		return invoiceDao.deleteInvoice(invoice_id);
+	}
 	
 }

@@ -14,4 +14,9 @@ public interface InvoiceService {
 	List<Invoice> getAllInvoice();
 
 	Invoice getInvoiveById(int Invoice_id);
+	
+	int updateInvoice(Invoice invoice);
+	
+	int deleteInvoice(int invoice_id);
+	
 }

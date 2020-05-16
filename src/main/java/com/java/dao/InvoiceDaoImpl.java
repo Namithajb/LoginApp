@@ -39,19 +39,36 @@ public class InvoiceDaoImpl implements InvoiceDao {
 				new ActorMapper());
 	}
 
-	private static final class ActorMapper implements RowMapper<Invoice> {
+	public int updateInvoice(Invoice invoice)
+	{
+		String sql = "update invoice set p_price=?,vat=?,no_of_part=?,total_price=?,total_vat=?,total_amt=? where invoice_id=?";
+		return jdbcTemplate.update(sql, new Object[] { invoice.getP_price(), invoice.getVat(), invoice.getNo_of_part(),
+				invoice.getTotal_price(), invoice.getTotal_vat(), invoice.getTotal_amt() ,invoice.getInvoice_id()});
+	}
+	
+	public int deleteInvoice(int invoice_id)	
+	{
+		String sql="delete from invoice where invoice_id=?";
+		return jdbcTemplate.update(sql,new Object[] {invoice_id});
+	}
 
-		public Invoice mapRow(ResultSet rs, int rowNum) throws SQLException {
-			Invoice invoice = new Invoice();
-			invoice.setInvoice_id(rs.getInt("invoice_id"));
-			invoice.setP_price(rs.getFloat("p_price"));
-			invoice.setVat(rs.getFloat("vat"));
-			invoice.setNo_of_part(rs.getFloat("no_of_part"));
-			invoice.setTotal_price(rs.getFloat("total_price"));
-			invoice.setTotal_vat(rs.getFloat("total_vat"));
-			invoice.setTotal_amt(rs.getFloat("total_amt"));
-			return invoice;
+
+
+}
+
+final class ActorMapper implements RowMapper<Invoice> {
+
+	public Invoice mapRow(ResultSet rs, int rowNum) throws SQLException {
+		Invoice invoice = new Invoice();
+		invoice.setInvoice_id(rs.getInt("invoice_id"));
+		invoice.setP_price(rs.getFloat("p_price"));
+		invoice.setVat(rs.getFloat("vat"));
+		invoice.setNo_of_part(rs.getFloat("no_of_part"));
+		invoice.setTotal_price(rs.getFloat("total_price"));
+		invoice.setTotal_vat(rs.getFloat("total_vat"));
+		invoice.setTotal_amt(rs.getFloat("total_amt"));
+		return invoice;
 		}
 	}
 
-}
+	

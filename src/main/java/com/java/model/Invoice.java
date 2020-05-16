@@ -3,9 +3,16 @@ package com.java.model;
 public class Invoice {
 	
 private int invoice_id;	
+
 private	float p_price;
+
+
+
 private	float vat;
+
+
 private	float no_of_part;
+
 private	float total_price;
 private	float total_vat;
 private	float total_amt;

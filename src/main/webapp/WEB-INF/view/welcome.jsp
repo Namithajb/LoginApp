@@ -5,6 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+ <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>  
 <title>Welcome</title>
 <link rel="stylesheet" type="text/css" href="css/util.css">
 <link rel="stylesheet" type="text/css" href="css/main1.css">
@@ -16,8 +17,10 @@
 			<div class="container-contact100-form-btn">
 				<button>
 					<span>
+					<c:url value="/logout" var="logoutUrl" />
+					
 						<button id="sign Out" name="sign out" class="contact100-form-btn"
-							onclick="location.href = '/';">Sign Out</button>
+							onclick="location.href = '/signOut';">Sign Out</button>
 					</span>
 				</button>
 			</div>
