@@ -60,6 +60,7 @@ public class InvoiceController {
 		return "invoice";
 	}
 	@RequestMapping(value = "/save")
+	public String showEditPage(@ModelAttribute("invoice") Invoice invoice,ModelMap model)
 	{
 		if (invoice.getInvoice_id()==0)
 		{invoiceService.addInvoice(invoice);}
