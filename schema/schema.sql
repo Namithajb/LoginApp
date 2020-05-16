@@ -1,4 +1,3 @@
-
 DROP DATABASE IF EXISTS `user`;
 CREATE DATABASE user;
 use user;
@@ -28,8 +27,8 @@ CREATE TABLE `user` (
   `email` varchar(45) DEFAULT NULL,
   `address` varchar(45) DEFAULT NULL,
   `phone` varchar(15) DEFAULT NULL,
-  PRIMARY KEY (`username`)
+  `role` varchar(45) DEFAULT 'Admin',
+  `userid` int NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`userid`),
+  UNIQUE KEY `username_UNIQUE` (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
-
-
