@@ -17,10 +17,10 @@
 			<div class="container-contact100-form-btn">
 				<button>
 					<span>
-					<c:url value="/logout" var="logoutUrl" />
+					<%-- <c:url value="/logout" var="logoutUrl" /> --%>
 					
-						<button id="sign Out" name="sign out" class="contact100-form-btn"
-							onclick="location.href = '/signOut';">Sign Out</button>
+						<button id="logout" name="logout" class="contact100-form-btn" 
+							onclick="location.href = 'logout';">Sign Out</button>
 					</span>
 				</button>
 			</div>

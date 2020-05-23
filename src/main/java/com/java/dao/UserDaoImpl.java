@@ -1,5 +1,8 @@
 package com.java.dao;
 
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
@@ -9,6 +12,8 @@ import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.security.authentication.encoding.Md5PasswordEncoder;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import com.java.model.Invoice;
@@ -24,9 +29,10 @@ public class UserDaoImpl implements UserDAO {
 	JdbcTemplate jdbcTemplate;
 
 	public int addUser(User user) {
+		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 		String sql = "insert into user (username,password,firstname,lastname,email,address,phone)values(?,?,?,?,?,?,?)";
 
-		return jdbcTemplate.update(sql, new Object[] { user.getUsername(), user.getPassword(), user.getFirstname(),
+		return jdbcTemplate.update(sql, new Object[] { user.getUsername(), passwordEncoder.encode(user.getPassword()), user.getFirstname(),
 				user.getLastname(), user.getEmail(), user.getAddress(), user.getPhone() });
 	}
 
@@ -37,6 +43,33 @@ public class UserDaoImpl implements UserDAO {
 
 		return users.size() > 0 ? users.get(0) : null;
 	}
+	
+	
+	public static String getMd5(String input) 
+    { 
+        try { 
+  
+            
+            MessageDigest md = MessageDigest.getInstance("MD5"); 
+           byte[] messageDigest = md.digest(input.getBytes()); 
+  
+             
+            BigInteger no = new BigInteger(1, messageDigest); 
+  
+           
+            String hashtext = no.toString(16); 
+            while (hashtext.length() < 32) { 
+                hashtext = "0" + hashtext; 
+            } 
+            return hashtext; 
+        
+
+        }
+        catch (NoSuchAlgorithmException e) { 
+            throw new RuntimeException(e); 
+        } 
+        
+    } 
 	
 
 }

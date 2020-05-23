@@ -36,27 +36,11 @@ public class HomeController {
 		return "login";
 	}
 
-	/*
-	 * @RequestMapping(value = "/login", method = RequestMethod.POST) public String
-	 * loginPage(@RequestParam(value = "error", required = false) String error,
-	 * 
-	 * @RequestParam(value = "logout", required = false) String logout, Model model)
-	 * { String errorMessge = null; if(error != null) { errorMessge =
-	 * "Username or Password is incorrect !!"; } if(logout != null) { errorMessge =
-	 * "You have been successfully logged out !!"; }
-	 * model.addAttribute("errorMessge", errorMessge); return "login"; }
-	 */ 
+
 	 
 
 	
-	  @RequestMapping(value="/signOut", method=RequestMethod.GET)  
-	    public String logoutPage(HttpServletRequest request, HttpServletResponse response) {  
-	        Authentication auth = SecurityContextHolder.getContext().getAuthentication();  
-	        if (auth != null){      
-	           new SecurityContextLogoutHandler().logout(request, response, auth);  
-	        }  
-	         return "/"; 
-	  }
+	 
 	
 	@RequestMapping("/showRegistrationPage")
 	public String showRegistrationPage(ModelMap model) {

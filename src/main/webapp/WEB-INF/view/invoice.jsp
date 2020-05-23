@@ -83,6 +83,7 @@ $("#total_amt").focus(function()
 				<div class="wrap-input100 validate-input"
 					data-validate="Please enter Purchase price">
 					<%-- <form:label path="p_price">Purchase Price</form:label> --%>
+					<form:errors path="p_price" cssClass="error" />
 					<form:input path="p_price" name="p_price" id="p_price"
 						class="input100" placeholder="Purchase Price" />
 
@@ -92,6 +93,7 @@ $("#total_amt").focus(function()
 				<div class="wrap-input100 validate-input"
 					data-validate="Please enter Vat">
 					<%-- <form:label path="vat">Vat</form:label> --%>
+					<form:errors path="vat" cssClass="error" />
 					<form:input path="vat" name="vat" id="vat" placeholder="Vat"
 						class="input100" />
 

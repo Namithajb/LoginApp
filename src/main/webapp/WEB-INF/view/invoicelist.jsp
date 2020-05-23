@@ -6,8 +6,8 @@
 <title>List Invoice</title>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" type="text/css" href="css/util.css">
-<link rel="stylesheet" type="text/css" href="css/main1.css">
+<link rel="stylesheet" type="text/css" href="/css/util.css">
+<link rel="stylesheet" type="text/css" href="/css/main1.css">
 </head>
 <body>
 	<div class="limiter">
@@ -49,8 +49,8 @@
 											<td class="cell100 column5">£${invoice.total_price}</td>
 											<td class="cell100 column6">£${invoice.total_vat}</td>
 											<td class="cell100 column7">£${invoice.total_amt}</td>
-											<td class="cell100 column8"><a href="Edit/${invoice.invoice_id}"/a href="Delete/${invoice.invoice_id}">Edit/Delete</a></td>
-											
+											<td class="cell100 column8"><a href="/Edit/${invoice.invoice_id}">Edit</button></td>
+											<td class="cell100 column8"><a href="/Delete/${invoice.invoice_id}">Delete</a></td>
 											<td class="cell100 column9"><a href="generatepdf/${invoice.invoice_id}">PDF</a></td>
 
 										</tr>

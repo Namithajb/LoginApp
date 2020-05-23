@@ -1,16 +1,25 @@
 package com.java.model;
 
+import javax.validation.constraints.NotNull;
+//import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.NotEmpty;
+import org.hibernate.validator.constraints.Range;
+
 public class Invoice {
 	
-private int invoice_id;	
+private int invoice_id;
+
 
 private	float p_price;
 
 
 
+
+@Range(min=0, max=90,message="required")
 private	float vat;
 
-
+@NotNull(message="required")
 private	float no_of_part;
 
 private	float total_price;

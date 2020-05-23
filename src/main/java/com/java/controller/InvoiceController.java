@@ -2,6 +2,8 @@ package com.java.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -30,16 +32,20 @@ public class InvoiceController {
 	}
 
 	@RequestMapping(value = "/invoiceProcess")
-	public String addInvoice(@ModelAttribute("invoice") Invoice invoice, ModelMap model) {
-		if (invoice.getNo_of_part() == 0 && invoice.getP_price() == 0 && invoice.getVat() == 0) {
-			model.addAttribute("message","cannot process");
+	public String addInvoice(@Valid @ModelAttribute("invoice") Invoice invoice, ModelMap model,BindingResult br) {
+		/*
+		 * if (invoice.getNo_of_part() == 0 && invoice.getP_price() == 0 &&
+		 * invoice.getVat() == 0) { model.addAttribute("message","cannot process");
+		 */
+		if(br.hasErrors())
+		{return "invoice";
 		} else {
 			invoiceService.addInvoice(invoice);
 			model.addAttribute("invoice_id", invoice.getInvoice_id());
 			model.addAttribute("message","Successfully Processed Invoice");
-		}
+	
 		return "invoice";
-	}
+	}}
 
 	@RequestMapping("/getInvoice")
 	public String listInvoicePage(ModelMap model) {
